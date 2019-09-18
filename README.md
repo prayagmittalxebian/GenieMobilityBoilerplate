@@ -1,7 +1,3 @@
-<div align="center">
-    <img src="App/Assets/Images/TOM-Legend.png" alt="Logo" width="100%">
-</div>
-
 
 # Prayag Genie React Native boilerplate
 
@@ -115,30 +111,3 @@ Assuming you have all the requirements installed, you can setup and run the proj
 
 - You may want to use [CocoaPods](https://cocoapods.org/) to manage your dependencies (iOS only) 
   - [Using CocoaPods to manage your package dependencies](docs/setup%20cocoapods.md)
-  
-  
-## Troubleshooting
-
-### App fails to start after renaming
-
-If your applicaiton fails to start after using the `yarn run rename` command, please take a look at [this issue](https://github.com/thecodingmachine/react-native-boilerplate/issues/34)
-
-## License
-
-This project is released under the [MIT License](LICENSE).
-
-## About us
-
-[TheCodingMachine](https://www.thecodingmachine.com/) is a web and mobile agency based in Paris and Lyon, France. We are [constantly looking for new developers and team leaders](https://www.thecodingmachine.com/nous-rejoindre/) and we love [working with freelancers](https://coders.thecodingmachine.com/). You'll find [an overview of all our open source projects on our website](https://thecodingmachine.io/open-source) and on [Github](https://github.com/thecodingmachine).
-
-## Alternative boilerplates
-
-We looked into existing boilerplates before starting this project, and while many of them are awesome, we did not find what we were looking for.
-
-The most popular is [mcnamee's Starter Kit](https://github.com/mcnamee/react-native-starter-kit), which is unfortunately [limited by *Expo*](https://facebook.github.io/react-native/docs/getting-started#caveats) and misses Redux Saga.
-
-If we look at the rest (and ignore unmaintained projects), many popular boilerplates are too opinionated: they include 3rd party services or very strong architecture choices that we are not comfortable with. To name a few: [Snowflake](https://github.com/bartonhammond/snowflake) runs with a Hapi Server running on Redhat OpenShift, [Hasura's boilerplate](https://github.com/hasura/react-native-auth-boilerplate) uses Hasura's SaaS for authentication, [Apollo's StarterKit](https://github.com/sysgears/apollo-universal-starter-kit) is targeted at GraphQL using Apollo, the [Meteor Boilerplate](https://github.com/spencercarli/react-native-meteor-boilerplate) targets Meteor…
-
-Finally some did not contain the architecture we are looking for (the separation of concerns with Redux, Sagas, etc.), for example [re-start](https://github.com/react-everywhere/re-start).
-
-One interesting exception is [Ignite IR Boilerplate "Andross"](https://github.com/infinitered/ignite-ir-boilerplate-andross), but after consideration we decided not to use it because of the large amount of unnecessary code/components it provided.
