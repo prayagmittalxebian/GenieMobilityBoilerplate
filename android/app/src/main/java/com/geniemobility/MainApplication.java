@@ -1,4 +1,4 @@
-package com.boilerplate;
+package com.geniemobility;
 
 import android.app.Application;
 
