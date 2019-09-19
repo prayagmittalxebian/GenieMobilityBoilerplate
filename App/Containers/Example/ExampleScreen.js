@@ -2,7 +2,7 @@ import React from 'react'
 import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import ExampleActions from 'App/Stores/Example/Actions'
+import ExampleActions from '../../Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 import { Images } from 'App/Theme'
@@ -35,8 +35,8 @@ class ExampleScreen extends React.Component {
                 <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
               </View>
               <Text style={Style.text}>To get started, edit App.js</Text>
-              <Text style={Style.instructions}>{instructions}
-                {this.props.test}</Text>
+              <Text style={Style.text}>ACTION TEXT : {this.props.actionText}</Text>
+              <Text style={Style.instructions}>{instructions}</Text>
               {this.props.userErrorMessage ? (
                 <Text style={Style.error}>{this.props.userErrorMessage}</Text>
               ) : (
@@ -50,8 +50,8 @@ class ExampleScreen extends React.Component {
                     </Text>
                   </View>
                 )}
-              <Button onPress={() => this._fetchUser()} title="Refresh" />
-              <Button onPress={() => this._fetchUser()} title="redirect" />
+              {/* <Button onPress={() => this._fetchUser()} title="Refresh" /> */}
+              <Button onPress={() => this.props.dispatch(performAction())} title="redirect" />
             </View>
           )}
       </View>
@@ -76,15 +76,9 @@ const mapStateToProps = (state) => ({
   userIsLoading: state.example.userIsLoading,
   userErrorMessage: state.example.userErrorMessage,
   liveInEurope: liveInEurope(state),
-  test: state.example.test
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(ExampleActions.fetchUser()),
-  // redirectToProfile: () => dispatch(ExampleActions.redirectToProfile())
+  actionText: state.example.actionText
 })
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(ExampleScreen)

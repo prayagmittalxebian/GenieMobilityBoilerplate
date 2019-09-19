@@ -10,9 +10,9 @@ import { ExampleTypes } from './Actions'
 
 export const fetchUserLoading = (state) => ({
   ...state,
-  userIsLoading: false,
+  userIsLoading: true,
   userErrorMessage: null,
-  test: 'XYZ'
+  actionText: "fetchUserLoading"
 })
 
 export const fetchUserSuccess = (state, { user }) => ({
@@ -26,16 +26,14 @@ export const fetchUserFailure = (state, { errorMessage }) => ({
   ...state,
   user: {},
   userIsLoading: false,
-  userErrorMessage: errorMessage,
-  test: 'DEF'
+  //userErrorMessage: errorMessage
 })
 
-export const redirectToProfileSuccess = (state) => ({
+export const performActionSuccess = (state, { mukesh }) => ({
   ...state,
-  user: {},
   userIsLoading: false,
-  userErrorMessage: errorMessage,
-  test: 'ABC'
+  //userErrorMessage: errorMessage,
+  actionText: mukesh
 })
 
 /**
@@ -45,5 +43,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [ExampleTypes.FETCH_USER_LOADING]: fetchUserLoading,
   [ExampleTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
   [ExampleTypes.FETCH_USER_FAILURE]: fetchUserFailure,
-  [ExampleTypes.REDIRECT_TO_PROFILE_SUCCESS]: redirectToProfileSuccess,
+  [ExampleTypes.PERFORM_ACTION_SUCCESS]: performActionSuccess,
 })

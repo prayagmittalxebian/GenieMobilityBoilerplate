@@ -5,5 +5,5 @@ export const INITIAL_STATE = {
   user: {},
   userIsLoading: false,
   userErrorMessage: null,
-  test: 'INITIAL STATE'
+  actionText: 'INITIAL STATE'
 }
