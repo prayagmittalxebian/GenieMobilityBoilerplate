@@ -63,10 +63,6 @@ The boilerplate includes an example (displaying fake user data) from UI componen
 
 For more information on each directory, click the link and read the directory's README.
 
-## Updates
-
-The boilerplate will follow new React-Native releases as soon as libraries and tools used here are compatible.
-
 ## Requirements
 
 Node 8 or greater is required. Development for iOS requires a Mac and Xcode 9 or up, and will target iOS 9 and up.
