@@ -29,11 +29,10 @@ export const fetchUserFailure = (state, { errorMessage }) => ({
   //userErrorMessage: errorMessage
 })
 
-export const performActionSuccess = (state, { mukesh }) => ({
+export const toggleSuccess = (state, { mukesh }) => ({
   ...state,
   userIsLoading: false,
-  //userErrorMessage: errorMessage,
-  actionText: mukesh
+  toggleText: !state.toggleText
 })
 
 /**
@@ -43,5 +42,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [ExampleTypes.FETCH_USER_LOADING]: fetchUserLoading,
   [ExampleTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
   [ExampleTypes.FETCH_USER_FAILURE]: fetchUserFailure,
-  [ExampleTypes.PERFORM_ACTION_SUCCESS]: performActionSuccess,
+  [ExampleTypes.TOGGLE_SUCCESS]: toggleSuccess,
 })

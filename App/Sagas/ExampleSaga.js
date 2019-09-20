@@ -25,16 +25,6 @@ export function* fetchUser() {
 }
 
 
-export function* performAction() {
-  yield put(ExampleActions.fetchUserLoading())
-
-  // Fetch user informations from an API
-  const user = yield call(userService.fetchUser)
-  if (user) {
-    yield put(ExampleActions.fetchUserSuccess(user))
-  } else {
-    yield put(
-      ExampleActions.fetchUserFailure('There was an error while fetching user informations.')
-    )
-  }
+export function* toggle() {
+  yield put(ExampleActions.toggleSuccess())
 }
