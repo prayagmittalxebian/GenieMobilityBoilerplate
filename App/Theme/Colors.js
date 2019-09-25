@@ -13,6 +13,7 @@ export default {
   success: '#28a745',
   error: '#dc3545',
 
+  //Login Screen
   backgroundColor: '#005EA1',
   backgroundWhiteColor: '#F6F7F9',
   textWhiteColor: '#FFFFFF',
@@ -23,4 +24,15 @@ export default {
   buttonColorbuttom: '#F08A00',
   buttonShadowColor: 'rgba(246,173,2,0.3)',
   exampleTextColor: '#FFC904',
+  errorColor: '#D71920',
+
+  //Search Screen
+  seacrhBackgroundColor: '#FFFFFF',
+  searchText: '#404040',
+  searchLineColor: '#E2E2E2',
+  searchCategoryBackground: '#F6F7F9',
+  optionActiveBackground: '#4A90E2',
+  optionActiveText: '#FFFFFF',
+  optionInactiveBackground: '#F6F7F9',
+  optionInactiveText: '#404040',
 }

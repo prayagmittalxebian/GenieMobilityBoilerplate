@@ -12,6 +12,7 @@ import LoginScreenStyle from 'App/Components/Login/LoginScreenStyle'
 import FloatInputTextInput from 'App/Containers/FloatInputTextInput'
 import ButtonComponent from 'App/Containers/ButtonComponent'
 import { Colors } from 'App/Theme'
+import NavigationService from 'App/Services/NavigationService'
 
 class LoginScreen extends PureComponent {
   constructor(props) {
@@ -20,25 +21,62 @@ class LoginScreen extends PureComponent {
       emailValue: '',
       passwordValue: '',
       emailPlaceholder: 'Enter ADID',
-      isFocused: '',
+      borderColorEmail: Colors.buttonColortop,
+      borderColorPassword: Colors.buttonColortop,
+      error: false,
     }
   }
 
-  onLoginClicked() {}
+  onLoginClicked() {
+    console.log('emailValue', this.state.emailValue)
+    console.log('password', this.state.passwordValue)
+
+    if (this.state.emailValue !== 'Sameer@gmail.com' && this.state.emailValue !== '') {
+      this.setState({ borderColorEmail: Colors.errorColor, error: true })
+    }
+    if (this.state.passwordValue !== 'sameer' && this.state.passwordValue !== '') {
+      this.setState({ borderColorPassword: Colors.errorColor, error: true })
+    }
+    if (this.state.emailValue === 'Sameer@gmail.com' && this.state.passwordValue === 'sameer') {
+      this.setState({
+        borderColorEmail: Colors.buttonColortop,
+        borderColorPassword: Colors.buttonColortop,
+        error: false,
+      })
+      NavigationService.navigate('searchScreen')
+    }
+  }
 
   onEmailChanged(text) {
-    this.setState({ emailValue: text }, () => {
+    this.setState({ emailValue: text, borderColorEmail: Colors.buttonColortop }, () => {
       console.log('Value', this.state.emailValue)
     })
   }
   onPasswordChanged(text) {
-    this.setState({ passwordValue: text }, () => {
+    this.setState({ passwordValue: text, borderColorPassword: Colors.buttonColortop }, () => {
       console.log('Value', this.state.passwordValue)
     })
   }
   renderExampleText() {
-    if (this.state.emailValue === '') {
+    if (this.state.emailValue !== '') {
       return <Text style={LoginScreenStyle.exampleTextStyle}>{'Example: ABE1234567'}</Text>
+    }
+  }
+
+  renderErrorMessage() {
+    if (this.state.error) {
+      return (
+        <View style={LoginScreenStyle.errorView}>
+          <Image
+            source={require('App/Assets/Images/ActionCopy.png')}
+            style={LoginScreenStyle.errorIcon}
+            resizeMode={'contain'}
+          />
+          <Text style={LoginScreenStyle.errorText}>
+            Login Failed. Unknown User ID or Bad Password
+          </Text>
+        </View>
+      )
     }
   }
 
@@ -64,7 +102,7 @@ class LoginScreen extends PureComponent {
               <FloatInputTextInput
                 label={'User ID'}
                 highlightColor={Colors.textWhiteColor}
-                highlightColorUnderLine={Colors.buttonColortop}
+                highlightColorUnderLine={this.state.borderColorEmail}
                 labelColor={Colors.textWhiteColor}
                 textColor={Colors.textWhiteColor}
                 textFocusColor={Colors.textWhiteColor}
@@ -73,9 +111,7 @@ class LoginScreen extends PureComponent {
                 dense={false}
                 isOpen={false}
                 value={this.state.emailValue}
-                //   placeholder={this.state.emailPlaceholder}
                 secureTextEntry={false}
-                //   onFocus={this.onFocus.bind(this)}
                 onChangeText={this.onEmailChanged.bind(this)}
               />
 
@@ -85,13 +121,12 @@ class LoginScreen extends PureComponent {
                 containerStyles={LoginScreenStyle.spaceInputStyle}
                 label={'Password'}
                 highlightColor={Colors.textWhiteColor}
-                highlightColorUnderLine={Colors.buttonColortop}
+                highlightColorUnderLine={this.state.borderColorPassword}
                 labelColor={Colors.textWhiteColor}
                 textColor={Colors.textWhiteColor}
                 textFocusColor={Colors.textWhiteColor}
                 borderColor={Colors.textWhiteColor}
                 autoGrow={false}
-                //   placeholder={'Enter Password'}
                 dense={false}
                 isOpen={false}
                 value={this.state.passwordValue}
@@ -110,6 +145,8 @@ class LoginScreen extends PureComponent {
                 transparent={false}
                 isRipple={true}
               />
+
+              {this.renderErrorMessage()}
             </View>
           </View>
           <View style={LoginScreenStyle.logoContainer}>

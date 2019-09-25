@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native'
 import { Colors } from 'App/Theme'
 
@@ -12,6 +13,30 @@ export default StyleSheet.create({
   container: {
     flex: 1,
   },
+  errorIcon: { height: 17, marginLeft: 5, width: 17 },
+  errorText: {
+    color: Colors.errorColor,
+    fontSize: 12,
+    marginLeft: 5,
+    marginRight: 30,
+    paddingBottom: 6,
+    paddingTop: 6,
+  },
+  errorView: {
+    alignItems: 'center',
+    backgroundColor: Colors.textWhiteColor,
+    borderRadius: 14,
+    flexDirection: 'row',
+    height: 28,
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    marginTop: 20,
+    shadowColor: Colors.shadowColor,
+    shadowOffset: { width: 0.4, height: 0.4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    width: '100%',
+  },
   exampleTextStyle: { color: Colors.exampleTextColor, marginTop: 20 },
   genieLogoImageStyle: {
     end: 0,
@@ -23,6 +48,7 @@ export default StyleSheet.create({
   },
   inputViewStyle: {
     flex: 1,
+    // marginBottom: 30,
     marginLeft: 30,
     marginRight: 30,
   },
@@ -35,6 +61,7 @@ export default StyleSheet.create({
   loginContainer: {
     backgroundColor: Colors.backgroundColor,
     flex: 1,
+    paddingBottom: 25,
   },
   loginText: {
     color: Colors.textWhiteColor,
