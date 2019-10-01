@@ -30,30 +30,30 @@ class ExampleScreen extends React.Component {
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-            <View>
-              <View style={Style.logoContainer}>
-                <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
-              </View>
-              <Text style={Style.text}>To get started, edit App.js</Text>
-              <Text style={Style.text}>ACTION TEXT : {this.props.toggleText ? "Yes" : "No"}</Text>
-              <Text style={Style.instructions}>{instructions}</Text>
-              {this.props.userErrorMessage ? (
-                <Text style={Style.error}>{this.props.userErrorMessage}</Text>
-              ) : (
-                  <View>
-                    <Text style={Style.result}>
-                      {"I'm a fake user, my name is "}
-                      {this.props.user.name}
-                    </Text>
-                    <Text style={Style.result}>
-                      {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
-                    </Text>
-                  </View>
-                )}
-              <Button onPress={() => this._fetchUser()} title="Refresh" />
-              <Button onPress={() => this.props.toggle()} title="redirect" />
+          <View>
+            <View style={Style.logoContainer}>
+              <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
             </View>
-          )}
+            <Text style={Style.text}>To get started, edit App.js</Text>
+            <Text style={Style.text}>ACTION TEXT : {this.props.toggleText ? 'Yes' : 'No'}</Text>
+            <Text style={Style.instructions}>{instructions}</Text>
+            {this.props.userErrorMessage ? (
+              <Text style={Style.error}>{this.props.userErrorMessage}</Text>
+            ) : (
+              <View>
+                <Text style={Style.result}>
+                  {"I'm a fake user, my name is "}
+                  {this.props.user.name}
+                </Text>
+                <Text style={Style.result}>
+                  {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
+                </Text>
+              </View>
+            )}
+            <Button onPress={() => this._fetchUser()} title="Refresh" />
+            <Button onPress={() => this.props.toggle()} title="redirect" />
+          </View>
+        )}
       </View>
     )
   }
@@ -77,12 +77,12 @@ const mapStateToProps = (state) => ({
   userErrorMessage: state.example.userErrorMessage,
   liveInEurope: liveInEurope(state),
   actionText: state.example.actionText,
-  toggleText: state.example.toggleText
+  toggleText: state.example.toggleText,
 })
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: () => dispatch(ExampleActions.fetchUser()),
-  toggle: () => dispatch(ExampleActions.toggle())
+  toggle: () => dispatch(ExampleActions.toggle()),
 })
 
 export default connect(
